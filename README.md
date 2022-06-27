@@ -17,11 +17,13 @@
 
 
 Again you should see the installation taking place. 
-OutStagram Files 
+
+## OutStagram Files 
 Download the following files: 
 ● Logo 
 ● Application 
-Install OutStagram 
+
+## Install OutStagram 
 On Studio menu, select Environment and Open Files 
 2
 
@@ -31,7 +33,7 @@ And proceed with the installation.
 In the end you should have something similar to… 
 
 3
-Create the application 
+## Create the application 
 In OutSystems, we can start developing apps from predefined templates. Templates can contain screen layout definitions, CSS, and other logic and data. Templates encourage the reuse of important components and can help create a consistent look and feel across multiple apps. 
 ● Create an App 
 
@@ -48,7 +50,8 @@ In OutSystems, we can start developing apps from predefined templates. Templates
 
 
 You should see something similar to this 
-Reference OutStagram Core 
+
+### Reference OutStagram Core 
 We will be needing some pre-made methods that exist on the OutStagram core module. 6
 
 Click the manage dependencies icon 
@@ -59,7 +62,8 @@ Repeat the process and search and select the OutStagramCore and then check all t
 8
 Go ahead and publish the application for the first time using the one click publish button. Give it a few seconds to finish. When done you should see a similar screen to this: 
 9
-Creating the Home screen 
+
+### Creating the Home screen 
 Drag and drop an empty screen to the Main Flow 
 10
 And then select empty screen and call it Home and press create screen 
@@ -82,7 +86,8 @@ The platform tries to understand what you are trying to do. In this case when dr
 14
 
 15
-Arranging the data display 
+
+### Arranging the data display 
 Select the image, select the container around it and expand to the full width of the screen. 16
 
 Then select the image again and delete the style class. 
@@ -90,15 +95,18 @@ Then select the image again and delete the style class.
 
 Delete all attributes from the screen except Description, Date and User Name and re-order them to show User Name, Description and Date. Also remove the bold classes from Description 
 18
-Sort the data 
+
+### Sort the data 
 We want to see the latest posts first so let's sort the data. If you do not see the GetPosts query flip the view back from the widget tree 
 19
-Publish the app 
+
+### Publish the app 
 You should be ready to publish the application. Put a nice title on your screen and click the big green One Click Publish button. 
 20
 The publishing process consists of several steps. 
 It sends your code to the server and does the appropriate check in, it generates and compiles standard code from your visual model and finally it deploys the application to your server making it available for use. 
-Testing the Application 
+
+### Testing the Application 
 You can now test your application in a few different ways. 
 Using your desktop browser, just click the big blue button which will open a browser with a frame simulating your phone form factor. 
 21
@@ -124,7 +132,8 @@ Finally whatever method you choose, you'll be presented with a login screen. You
 
 You should see something similar to this. 
 25
-Refining the Home Screen 
+
+## Refining the Home Screen 
 Implementing a like status 
 Every social media app needs a like button. In our example we'll use a heart to allow the user to like and give a visual representation. 
 Flip to the widget tree, expand content, list, list-item, content and drag and drop an if right between the image-container and the other Container. 
@@ -169,7 +178,7 @@ Go ahead publish the app and then click the test button . You can now interact w
 
 36
 
-Implementing a Like counter 
+## Implementing a Like counter 
 We also want to have the total number of likes for each post. For this feature we'll use a slightly different technique by introducing blocks. In OutSystems blocks are pieces of UI that can be reused multiple times on many screens. 
 Creating the Block 
 Double click the , drop a block next to the home screen, rename it to Likes and open it with double click. 
@@ -183,14 +192,15 @@ Now, click on the screen and select the PostLike entity.
 Now, we filter the likes for the PostID passed through the parameter. 
 40
 
-Displaying the Like count 
+### Displaying the Like count 
 Back to the Like block, grab an expression and select the count under the query. 41
 
 Change the example to 99 and type " likes" using the keyboard next to the expression. 
 42
 Select the expression and add 10px of left margin from the styles tab. 
 43
-Using the block on the Home screen 
+
+### Using the block on the Home screen 
 On the home screen we need to adjust the UI to make room for the likes counter. Flip to the widget tree, locate the container below the link, flip to the styles and set the width to Fill. 
 44
 
@@ -199,9 +209,11 @@ The next step is to flip back the widget tree, grab the like block, drop it next
 
 Go ahead publish the app and then click the test button . You can now interact with the heart by clicking on it and should see the counter being updated. 
 46
-Creating a new post 
+
+## Creating a new post 
 The next step is to make a screen where the user can create a new post, taking a picture and typing some content. 
-Taking a picture 
+
+### Taking a picture 
 Navigate back to the and drag a new screen into the canvas. 
 47
 Select the empty template and name the screen NewPost. 
@@ -225,7 +237,8 @@ Drag the Resize action below the If into the true branch. On the image parameter
 Finally let's assign the resized image to the local variable picture. 
 55
 Go ahead publish the app 
-Creating the UI 
+
+### Creating the UI 
 Navigate back to the NewPost screen by double clicking 
 Locate the Form, Image and TextArea widgets and drop it on the screen. Set the Image property type to Binary Data and the Image Content property to Picture. 
 Set the TextArea property Variable to Description 
@@ -240,19 +253,22 @@ Select the Cancel button and set its On Click property to MainFlow\home
 58
 Select the Post Button and set its On Click property to New Client Action. 
 59
-Saving the post to the database. 
+
+### Saving the post to the database. 
 Flip to the logic tab and locate the NewPost action under Server 
 Actions/OutStagramCore and drop it below the If. On the properties set the UserId to GetUserId(), Picture to Picture and Description to Description. 
 Drag a Destination widget on top of the End node and choose Main 
 Flow/Home as the destination property. 
 60
-Linking the New Post Screen 
+
+### Linking the New Post Screen 
 All we need to do now is to have a way for the user to access the new post screen from the home screen. 
 Navigate to the Home screen and drop an icon on the top left placeholder. Choose the plus sign as the image. Also right click on the icon and choose Link to, MainFlow\NewPost. 
 61
 
 Go ahead publish the app 
-Testing the app 
+
+## Testing the app 
 Because of the camera it is best to test the app on a mobile phone and 
 because this is a PWA application you can use it without any installation. 
 Navigate to the main tab, switch to the distribute tab and scan the 
